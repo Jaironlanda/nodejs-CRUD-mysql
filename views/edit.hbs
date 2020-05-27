@@ -1,0 +1,30 @@
+
+{{#if messages.validation_error}}
+    {{#each messages.validation_error}}
+        <p>{{msg}}</p>
+    {{/each}}
+{{/if}}
+
+{{#if messages.error}}
+  <p>{{messages.error}}</p>
+{{/if}}
+
+{{#if messages.success}}
+  <p>{{messages.success}}</p>
+{{/if}}
+
+<form action="/edit/{{user.id}}" method="post">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text"
+        class="form-control" name="username" id="username" aria-describedby="helpId" placeholder="" value="{{user.username}}">
+      <small id="helpId" class="form-text text-muted">Help text</small>
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="email"
+        class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="" value="{{user.email}}">
+      <small id="helpId" class="form-text text-muted">Help text</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

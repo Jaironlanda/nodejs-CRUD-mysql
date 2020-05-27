@@ -1,0 +1,50 @@
+{{!-- show error --}}
+{{#if messages.error}}
+    <p>{{messages.error}}</p>
+{{/if}}
+
+{{#if messages.success}}
+  <p>{{messages.success}}</p>
+{{/if}}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>username</th>
+            <th>email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{username}}</td>
+            <td>{{email}}</td>
+            <td>
+                <a href="/edit/{{id}}" class="btn btn-primary">Edit</a>
+                <a href="/delete/{{id}}" onclick="return alert('Are You sure?')"class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+        {{!-- Check make sure data is exist or not --}}
+        {{#unless data}}
+            <p>No data</p>
+        {{/unless}}
+    </tbody>
+</table>
+{{!-- <div>
+    {{#if data}}
+        <p>{{data.[0].username}}</p>
+        <p>{{data.[0].email}}</p>
+    {{else}}
+        <p>No Data</p>
+    {{/if}}
+</div>
+<hr>
+<div>
+    {{#each data}}
+        <p>{{username}} / {{email}}</p>
+    {{/each}}
+</div> --}}
